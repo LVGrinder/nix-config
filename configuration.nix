@@ -81,7 +81,6 @@
 	
 
 
-    boot.supportedFilesystems = [ "ntfs" ];
 
 	programs.bash.enable = true;
   programs.git = {
@@ -123,6 +122,8 @@
     };
 };
 
+
+  boot.supportedFilesystems = [ "ntfs" ];
 
   security.rtkit.enable = true;	
   services.pipewire = {
