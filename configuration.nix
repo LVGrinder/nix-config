@@ -62,6 +62,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git
     gcc
     clang
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -84,12 +85,11 @@
 
 	programs.bash.enable = true;
   programs.git = {
-    enable = true;
     userName  = "Daniel Aanensen";
     userEmail = "tetochrono@protonmail.com";
     extraConfig.github.user = "LVGrinder";
     credentialHelper = "gh auth git-credential";;
-}
+};
 
 	programs.neovim.enable = true;
   programs.neovim.viAlias = true;
