@@ -70,14 +70,17 @@
     kitty
   ];
  
-
+  
+  
   home-manager.users.teto = { pkgs, ... }: {
-	home.packages = [
+  home.packages = [
 	pkgs.firefox
 	pkgs.signal-desktop
   pkgs.ripgrep
   pkgs.xterm
-  pkgs.gh
+  pkgs.webcord
+  pkgs.obs-studio
+  # pkgs.gh
 	];
 	
 
@@ -85,10 +88,15 @@
 
 	programs.bash.enable = true;
   programs.git = {
+    enable = true;
     userName  = "Daniel Aanensen";
     userEmail = "tetochrono@protonmail.com";
-    extraConfig.github.user = "LVGrinder";
-    credentialHelper = "gh auth git-credential";;
+  };
+  # programs.gh.enable = true;
+  programs.git.extraConfig.github.user = "LVGrinder";
+
+  programs.gh = {
+  enable = true;
 };
 
 	programs.neovim.enable = true;
@@ -99,6 +107,8 @@
 
 	home.stateVersion = "24.05";
 	
+
+
   };
 
 
@@ -106,7 +116,6 @@
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
 
-#      nerdfont
       jetbrains-mono
       noto-fonts
       noto-fonts-emoji
@@ -123,7 +132,7 @@
 };
 
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.supportedFilesystems = [ "ntfs" ];
 
   security.rtkit.enable = true;	
   services.pipewire = {
