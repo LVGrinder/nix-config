@@ -79,14 +79,18 @@
   pkgs.gh
 	];
 	
+
+
+    boot.supportedFilesystems = [ "ntfs" ];
+
 	programs.bash.enable = true;
   programs.git = {
     enable = true;
     userName  = "Daniel Aanensen";
     userEmail = "tetochrono@protonmail.com";
-  };
-
-
+    extraConfig.github.user = "LVGrinder";
+    credentialHelper = "gh auth git-credential";;
+}
 
 	programs.neovim.enable = true;
   programs.neovim.viAlias = true;
