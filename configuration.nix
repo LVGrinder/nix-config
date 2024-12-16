@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./system/neovim.nix
       <home-manager/nixos>
     ];
 
@@ -106,11 +107,7 @@
   enable = true;
 };
 
-	programs.neovim.enable = true;
-  programs.neovim.viAlias = true;
-  programs.neovim.defaultEditor = true;
 	
-  programs.lazygit.enable = true;
 
 	home.stateVersion = "25.05";
 	
