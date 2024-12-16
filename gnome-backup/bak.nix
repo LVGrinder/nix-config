@@ -12,14 +12,9 @@
     ];
 
   # Bootloader.
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "/dev/nvme0n1";
-  #boot.loader.grub.useOSProber = true;
-
-
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/nvme0n1";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -36,9 +31,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-  ];
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "no";
@@ -112,7 +105,7 @@
 	
   programs.lazygit.enable = true;
 
-	home.stateVersion = "25.05";
+	home.stateVersion = "24.05";
 	
 
 
@@ -179,5 +172,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
