@@ -17,7 +17,8 @@
   #boot.loader.grub.device = "/dev/nvme0n1";
   #boot.loader.grub.useOSProber = true;
 
-
+  # Enable the Flakes feature and the accompanying new nix command-line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -70,9 +71,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
-    gcc
-    clang
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     kitty
@@ -109,9 +107,9 @@
 
 	
 
-	home.stateVersion = "25.05";
 	
 
+	home.stateVersion = "25.05";
 
   };
 
