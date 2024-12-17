@@ -1,21 +1,26 @@
 
 { config, pkgs, ... }:
 {
-  home-manager.users.teto = { pkgs, ... }: {
-  home.packages = [
-    pkgs.firefox
-    pkgs.signal-desktop
-    pkgs.ripgrep
-    pkgs.xterm
-    pkgs.webcord
-    pkgs.obs-studio
+
+  imports =
+    [ # Include the results of the hardware scan.
+      # <home-manager/nixos>
+    ];
+  home.username = "teto";
+  home.homeDirectory = "/home/teto";
+  # home-manager.users.teto = { pkgs, ... }: {
+  home.packages = with pkgs; [
+    firefox
+    signal-desktop
+    ripgrep
+    xterm
+    webcord
+    obs-studio
     # pkgs.gh
 	];
 	
 
 
-
-	programs.bash.enable = true;
   programs.git = {
     enable = true;
     userName  = "Daniel Aanensen";
@@ -24,15 +29,14 @@
   # programs.gh.enable = true;
   programs.git.extraConfig.github.user = "LVGrinder";
 
+	programs.bash.enable = true;
   programs.gh = {
-  enable = true;
-};
+    enable = true;
+  };
 
-	
-
-	
 
 	home.stateVersion = "25.05";
 
-  };
+  programs.home-manager.enable = true;
+
 }

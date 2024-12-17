@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./system/neovim.nix
-      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -29,6 +28,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -55,7 +55,6 @@
     isNormalUser = true;
     description = "Teto";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
   };
 
   
@@ -82,7 +81,10 @@
 
    fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
 
       jetbrains-mono
       noto-fonts
