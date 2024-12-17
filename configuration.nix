@@ -11,6 +11,7 @@
     ./system/neovim.nix
     ./system/hyprland.nix
     ./system/terminal.nix
+    ./system/drivers/amd/amdgpu.nix
   ];
 
   # Bootloader.

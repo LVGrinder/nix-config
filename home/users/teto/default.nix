@@ -5,7 +5,6 @@
     # Include the results of the hardware scan.
     # <home-manager/nixos>
     ../../shared/programs.nix
-    ../../shared/drivers/amd/amdgpu.nix
   ];
   home.username = "teto";
   home.homeDirectory = "/home/teto";
