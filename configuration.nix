@@ -11,7 +11,6 @@
     ./system/neovim.nix
     ./system/hyprland.nix
     ./system/terminal.nix
-    ./home/shared/programs.nix
   ];
 
   # Bootloader.
