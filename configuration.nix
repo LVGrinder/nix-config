@@ -5,11 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./system/neovim.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./system/neovim.nix
+    ./system/hyprland.nix
+    ./system/terminal.nix
+    ./home/shared/programs.nix
+  ];
 
   # Bootloader.
   #boot.loader.grub.enable = true;
@@ -17,7 +20,10 @@
   #boot.loader.grub.useOSProber = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -28,7 +34,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -54,10 +59,11 @@
   users.users.teto = {
     isNormalUser = true;
     description = "Teto";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
-
-  
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "teto";
@@ -71,18 +77,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  wget
     kitty
   ];
- 
-  
-  
 
-
-   fonts = {
+  fonts = {
     packages = with pkgs; [
       # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-    
+
       nerd-fonts.fira-code
       nerd-fonts.droid-sans-mono
 
@@ -94,28 +96,25 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [  "nerdfont" ];
+        serif = [ "nerdfont" ];
         sansSerif = [ "roboto" ];
         monospace = [ "jetbrains-mono" ];
       };
     };
-};
-
+  };
 
   # boot.supportedFilesystems = [ "ntfs" ];
 
-  security.rtkit.enable = true;	
+  security.rtkit.enable = true;
   services.pipewire = {
-	enable = true;
-	alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;	
-};
+    #jack.enable = true;
+  };
   services.pipewire.wireplumber.enable = true;
-	
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
