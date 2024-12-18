@@ -19,6 +19,15 @@
     # pkgs.gh
   ];
 
+  programs.nixcord = {
+    enable = true;
+    config = {
+      themeLinks = [
+        "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"
+      ];
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Daniel Aanensen";
