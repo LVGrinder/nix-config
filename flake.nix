@@ -8,6 +8,9 @@
     nixcord = {
       url = "github:kaylorben/nixcord";
     };
+    catppuccin = {
+      url = "github:catppuccin/nix";
+    };
   };
 
   outputs =
@@ -19,6 +22,7 @@
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
+            # catppuccin.nixosModules.catppuccin
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -28,6 +32,7 @@
               # arguments to home.nix
               home-manager.sharedModules = [
                 inputs.nixcord.homeManagerModules.nixcord
+                inputs.catppuccin.homeManagerModules.catppuccin
               ];
             }
           ];
