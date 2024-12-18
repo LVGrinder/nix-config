@@ -99,13 +99,27 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "nerdfont" ];
+        serif = [ "noto-fonts" ];
         sansSerif = [ "roboto" ];
         monospace = [ "jetbrains-mono" ];
       };
     };
   };
 
+  services.xserver = {
+    dpi = 144; # Adjust for your scaling (96 is default, 144 = 1.5 scaling)
+  };
+
+  environment.variables = {
+    GDK_SCALE = "1.5"; # For GTK apps
+    GDK_DPI_SCALE = "1.0"; # Compensates for GTK scaling if needed
+    QT_AUTO_SCREEN_SCALE_FACTOR = "0"; # Prevents auto-scaling in Qt apps
+    QT_SCALE_FACTOR = "1.5"; # Sets scaling for Qt apps
+    #Electron apps
+    ELECTRON_ENABLE_AUTO_DPI_SCALING = "true"; # Enable DPI scaling in Electron apps
+    ELECTRON_FORCE_DEVICE_SCALE_FACTOR = "1.5"; # Forces scaling factor for WebCord
+
+  };
   # boot.supportedFilesystems = [ "ntfs" ];
 
   security.rtkit.enable = true;
