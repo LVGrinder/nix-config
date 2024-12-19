@@ -14,6 +14,16 @@
       caprine # Facebook Messenger desktop app
       brave # browser
     ];
+
   };
 
+  programs = {
+    kitty = {
+      enable = true;
+      # font.packages = "nerd-fonts.fira-code";
+      font.name = "FiraCode Nerd Font";
+      font.package = pkgs.nerd-fonts.fira-code;
+      themeFile = "Catppuccin-Mocha";
+    };
+  };
 }
