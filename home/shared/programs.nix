@@ -13,6 +13,7 @@
       dconf # Provides a backend for GTK settings | Needed for Thunar and XFCE
       caprine # Facebook Messenger desktop app
       brave # browser
+      dunst # notification manager
     ];
 
   };
