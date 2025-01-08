@@ -18,6 +18,7 @@
     webcord
     obs-studio
     # pkgs.gh
+    xdg-desktop-portal-hyprland
   ];
 
   programs.nixcord = {
