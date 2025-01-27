@@ -19,6 +19,7 @@
     obs-studio
     # pkgs.gh
     xdg-desktop-portal-hyprland
+    lmstudio # for LLM
   ];
 
   programs.nixcord = {
