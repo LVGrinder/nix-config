@@ -20,6 +20,8 @@
     # pkgs.gh
     xdg-desktop-portal-hyprland
     lmstudio # for LLM
+    legendary-gl # epic games alternative
+    wineWowPackages.wayland # windows emulation
   ];
 
   programs.nixcord = {
