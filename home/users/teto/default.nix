@@ -16,7 +16,7 @@
     ripgrep
     xterm
     webcord
-    obs-studio
+    # obs-studio
     # pkgs.gh
     xdg-desktop-portal-hyprland
     lmstudio # for LLM
@@ -37,6 +37,10 @@
         "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"
       ];
     };
+  };
+
+  programs.obs-studio = {
+    enable = true;
   };
 
   programs.git = {
