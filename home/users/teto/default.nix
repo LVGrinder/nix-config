@@ -22,6 +22,12 @@
     lmstudio # for LLM
     legendary-gl # epic games alternative
     wineWowPackages.wayland # windows emulation
+
+    slurp # screen region capture
+    grim # screen capture - grab image
+    wl-clipboard # wayland clipboard
+    jq # Lightweight and flexible command-line JSON processor
+    swappy # Wayland native snapshot and editor tool
   ];
 
   programs.nixcord = {
