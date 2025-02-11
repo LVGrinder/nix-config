@@ -21,7 +21,11 @@
     xdg-desktop-portal-hyprland
     lmstudio # for LLM
     legendary-gl # epic games alternative
-    wineWowPackages.wayland # windows emulation
+    # wineWowPackages.stagingFull # windows emulation
+    # winetricks
+    # protontricks
+    # dxvk_2
+    vulkan-tools
 
     slurp # screen region capture
     grim # screen capture - grab image

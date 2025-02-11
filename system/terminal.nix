@@ -11,6 +11,8 @@
         tmuxPlugins.catppuccin
         tmuxPlugins.cpu
         tmuxPlugins.battery
+        # tmuxPlugins.resurrect
+        # tmuxPlugins.continuum
       ];
 
       extraConfigBeforePlugins = ''
@@ -39,8 +41,15 @@
         set -ag status-right "#{E:@catppuccin_status_uptime}"
         set -agF status-right "#{E:@catppuccin_status_battery}"
 
+        set -g @plugin 'tmux-plugins/tmux-resurrect'
+        set -g @plugin 'tmux-plugins/tmux-continuum'
+
         run ${pkgs.tmuxPlugins.cpu}/share/tmux-plugins/cpu/cpu.tmux
         run ${pkgs.tmuxPlugins.battery}/share/tmux-plugins/battery/battery.tmux
+        run ${pkgs.tmuxPlugins.continuum}/share/tmux-plugins/continuum/continuum.tmux
+
+        # set -g @plugin 'tmux-plugins/tmux-resurrect'
+        # set -g @plugin 'tmux-plugins/tmux-continuum'
         # Or, if using TPM, just run TPM;
       '';
     };
