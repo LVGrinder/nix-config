@@ -19,7 +19,7 @@
     ./system/hyprland.nix
     ./system/terminal.nix
     ./system/drivers/amd/amdgpu.nix
-    ./system/drivers/amd/amdfix.nix
+    # ./system/drivers/amd/amdfix.nix
   ]; # ++ (builtins.attrValues outputs.nixosModules);
 
   # Bootloader.
@@ -74,7 +74,7 @@
   };
 
   # Enable automatic login for the user.
-  services.getty.autologinUser = "teto";
+  # services.getty.autologinUser = "teto";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -104,6 +104,7 @@
       noto-fonts
       noto-fonts-emoji
       roboto
+      adwaita-icon-theme
     ];
 
     fontconfig = {
@@ -115,20 +116,20 @@
     };
   };
 
-  services.xserver = {
-    dpi = 144; # Adjust for your scaling (96 is default, 144 = 1.5 scaling)
-  };
+  # services.xserver = {
+  #   dpi = 144; # Adjust for your scaling (96 is default, 144 = 1.5 scaling)
+  # };
 
-  environment.variables = {
-    GDK_SCALE = "1.5"; # For GTK apps
-    GDK_DPI_SCALE = "1.0"; # Compensates for GTK scaling if needed
-    QT_AUTO_SCREEN_SCALE_FACTOR = "0"; # Prevents auto-scaling in Qt apps
-    QT_SCALE_FACTOR = "1.5"; # Sets scaling for Qt apps
-    #Electron apps
-    ELECTRON_ENABLE_AUTO_DPI_SCALING = "true"; # Enable DPI scaling in Electron apps
-    ELECTRON_FORCE_DEVICE_SCALE_FACTOR = "1.5"; # Forces scaling factor for WebCord
-
-  };
+  # environment.variables = {
+  #   GDK_SCALE = "1.5"; # For GTK apps
+  #   GDK_DPI_SCALE = "1.0"; # Compensates for GTK scaling if needed
+  #   QT_AUTO_SCREEN_SCALE_FACTOR = "0"; # Prevents auto-scaling in Qt apps
+  #   QT_SCALE_FACTOR = "1.5"; # Sets scaling for Qt apps
+  #   #Electron apps
+  #   ELECTRON_ENABLE_AUTO_DPI_SCALING = "true"; # Enable DPI scaling in Electron apps
+  #   ELECTRON_FORCE_DEVICE_SCALE_FACTOR = "1.5"; # Forces scaling factor for WebCord
+  #
+  # };
   # boot.supportedFilesystems = [ "ntfs" ];
 
   security.rtkit.enable = true;
@@ -167,5 +168,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
