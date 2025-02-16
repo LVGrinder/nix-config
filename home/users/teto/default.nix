@@ -11,6 +11,8 @@
   home.homeDirectory = "/home/teto";
   # home-manager.users.teto = { pkgs, ... }: {
   home.packages = with pkgs; [
+    nextcloud-client
+    obsidian
     firefox
     signal-desktop
     ripgrep
@@ -60,7 +62,7 @@
     enable = true;
   };
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "24.11";
 
   programs.home-manager.enable = true;
 
