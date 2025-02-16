@@ -15,33 +15,67 @@
   #
   # ];
 
+  xdg.portal.wlr.enable = true;
+  programs.xwayland.enable = true;
+  programs.gamescope.enable = true;
+  programs.steam.gamescopeSession.enable = true;
   environment.systemPackages = with pkgs; [
     wofi
+    # glibc
+    # gnutls
+    # jansson
     bottles
-    wineWowPackages.waylandFull
+    # wineWowPackages.waylandFull
     winetricks
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-extension-layer
+    # wineWowPackages.stagingFull
+    wineWowPackages.stable
+    protonup-qt
+    protonplus
+    # xdg-desktop-portal-gtk
+    # lutris-free
+    (lutris.override {
+      extraPkgs = pkgs: [
+        #       #               ----
+        #       #      ↓ same var ↑
+        #       #     ----
+        wineWowPackages.stable
+        # wineWowPackages.stagingFull
+        # winePackages.waylandFull
+        driversi686Linux.amdvlk
+        #       #     # pkgs.wineWowPackages.waylandFull
+        #       #     # pkgs.wineWow64Packages.waylandFull
+        #       #     # pkgs.winePackages.waylandFull
+        #       #
+        # glibc
+        # gnutls
+        # jansson
 
-    # (lutris-unwrapped.override {
-    #   extraPkgs = pkgs: [
-    #     #               ----
-    #     #      ↓ same var ↑
-    #     #     ----
-    #     wineWowPackages.waylandFull
-    #     # pkgs.wineWowPackages.waylandFull
-    #     # pkgs.wineWow64Packages.waylandFull
-    #     # pkgs.winePackages.waylandFull
-    #
-    #     winetricks
-    #     # pkgs.dxvk_2 # Vulkan redirect for DX
-    #     vulkan-loader
-    #     vulkan-validation-layers
-    #     vulkan-extension-layer
-    #
-    #   ];
-    # })
+        winetricks
+        #       #     # pkgs.dxvk_2 # Vulkan redirect for DX
+        #       #     vulkan-loader
+        #       #     vulkan-validation-layers
+        #       #     vulkan-extension-layer
+        #       #
+      ];
+    })
   ];
+  hardware.graphics.extraPackages = with pkgs; [
+    amdvlk
+    rocmPackages.clr.icd
+  ];
+  # For 32 bit applications
+  hardware.graphics.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+
+  ];
+  programs.steam.protontricks.enable = true;
   programs.steam.enable = true;
   hardware.amdgpu.amdvlk.enable = true;
+  hardware.amdgpu.opencl.enable = true;
+  hardware.amdgpu.amdvlk.support32Bit.enable = true;
   #OBS
   # https://nixos.wiki/wiki/OBS_Studio
   boot.extraModulePackages = with config.boot.kernelPackages; [

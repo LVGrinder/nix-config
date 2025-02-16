@@ -17,21 +17,21 @@
 
       # lutris-unwrapped
       # wineWowPackages.stagingFull
-      (lutris.override {
-        extraPkgs = pkgs: [
-          #               ----
-          #      ↓ same var ↑
-          #     ----
-          wineWowPackages.stagingFull
+      # (lutris.override {
+      #   extraPkgs = pkgs: [
+      #     #               ----
+      #     #      ↓ same var ↑
+      #     #     ----
+      #     wineWowPackages.stagingFull
 
-          # wineWowPackages.stagingFull
-          # wineWow64Packages.stagingFull
-          # winetricks
-          # vulkaninfo
-          # amdvlk
-        ];
-      })
-      winetricks
+      # wineWowPackages.stagingFull
+      # wineWow64Packages.stagingFull
+      # winetricks
+      # vulkaninfo
+      # amdvlk
+      #   ];
+      # })
+      # winetricks
       # pkgs.dxvk_2 # Vulkan redirect for DX
       # vulkan-loader
       # vulkan-validation-layers
