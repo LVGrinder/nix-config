@@ -11,6 +11,8 @@
   home.homeDirectory = "/home/teto";
   # home-manager.users.teto = { pkgs, ... }: {
   home.packages = with pkgs; [
+    helvum
+    easyeffects
     nextcloud-client
     obsidian
     firefox
