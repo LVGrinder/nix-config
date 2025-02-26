@@ -36,8 +36,8 @@
     enable = true;
     wayland.enable = true;
   };
-  services.displayManager.defaultSession = "hyprland";
-  services.displayManager.autoLogin.user = "teto";
+  # services.displayManager.defaultSession = "hyprland";
+  # services.displayManager.autoLogin.user = "teto";
 
   # hardware.graphics = {
   # };

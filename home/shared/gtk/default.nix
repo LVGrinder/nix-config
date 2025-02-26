@@ -29,4 +29,10 @@
       package = pkgs.papirus-icon-theme; # Replace with your desired icon theme package
     };
   };
+  catppuccin.hyprland = {
+
+    enable = true;
+    flavor = "mocha";
+    accent = "pink";
+  };
 }

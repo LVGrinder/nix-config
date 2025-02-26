@@ -10,6 +10,7 @@
 
   # Install LazyVim dependencies
   environment.systemPackages = with pkgs; [
+    ntfs3g
     neovim # Neovim itself
     ripgrep # Needed for telescope.nvim
     fd # Fast file searching

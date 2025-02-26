@@ -32,6 +32,10 @@
     "nix-command"
     "flakes"
   ];
+  programs.hyprland.withUWSM = true;
+
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -45,6 +49,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.allowedTCPPorts = [
+    # 80 # http
+    # 443 # https
+    25565 # minecraft
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
@@ -116,9 +125,9 @@
     };
   };
 
-  # services.xserver = {
-  #   dpi = 144; # Adjust for your scaling (96 is default, 144 = 1.5 scaling)
-  # };
+  services.xserver = {
+    dpi = 96; # Adjust for your scaling (96 is default, 144 = 1.5 scaling)
+  };
 
   # environment.variables = {
   #   GDK_SCALE = "1.5"; # For GTK apps

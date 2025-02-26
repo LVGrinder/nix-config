@@ -6,6 +6,7 @@
     # <home-manager/nixos>
     ../../shared/programs.nix
     ../../shared/gtk
+    ../../shared/wayland/utilities.nix
   ];
   home.username = "teto";
   home.homeDirectory = "/home/teto";

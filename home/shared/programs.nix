@@ -1,8 +1,25 @@
 { config, pkgs, ... }:
 
 {
+  # let
+  #   asepriteCatppuccin = ~/Downloads/mocha.aseprite-extension;
+  #   asepriteEnv = pkgs.buildEnv {
+  #     name = "aseprite-env";
+  #     paths = [ pkgs.aseprite asepriteCatppuccin];
+  #   };
+  #   in {
+  #
+  #   }
   home = {
     packages = with pkgs; [
+      aseprite
+      blender-hip
+      godot_4
+      catppuccin-cursors.mochaPink
+      logiops
+      prismlauncher
+      minecraft-server # minecraft server
+      # papermcServers.papermc-1_21_1 # minecraft server
       spotify
       spicetify-cli # to customize spotify
       xfce.thunar # gtk file manager

@@ -11,5 +11,6 @@ hypr=~/nix-config/dotfiles/hypr/user/$current_user/hyprland.conf
 echo "$hypr"
 
 sudo rm -r ~/.config/hypr
+echo "deleted"
 sudo mkdir ~/.config/hypr
 sudo ln -s ~/nix-config/dotfiles/hypr/users/"$current_user"/hyprland.conf ~/.config/hypr/hyprland.conf

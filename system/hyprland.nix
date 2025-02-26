@@ -5,9 +5,9 @@
 }:
 
 {
-  programs = {
-    waybar.enable = true;
-  };
+  # programs = {
+  #   waybar.enable = true;
+  # };
   # environment.systemPackages = [
   #   pkgs.bottles
   #   pkgs.wofi
@@ -15,7 +15,7 @@
   #
   # ];
 
-  xdg.portal.wlr.enable = true;
+  # xdg.portal.wlr.enable = true;
   programs.xwayland.enable = true;
   programs.gamescope.enable = true;
   programs.steam.gamescopeSession.enable = true;
