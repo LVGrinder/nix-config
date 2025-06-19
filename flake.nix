@@ -12,12 +12,13 @@
     catppuccin = {
       url = "github:catppuccin/nix";
     };
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
     {
       self,
-      # nixpkgs,
+      nixpkgs,
       nixpkgs-unstable,
       home-manager,
       ...
@@ -44,12 +45,10 @@
     # };
     {
       nixosConfigurations = {
-        nixos = nixpkgs-unstable.lib.nixosSystem rec {
+        nixos = nixpkgs-unstable.lib.nixosSystem {
           inherit system;
           # inherit extraSpecialArgs;
-          specialArgs = {
-            inherit inputs outputs;
-          }; # // extraSpecialArgs;
+          specialArgs = { inherit inputs; }; # // extraSpecialArgs;
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
@@ -60,12 +59,16 @@
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 users.teto = import ./home/users/teto;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
               };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
               home-manager.sharedModules = [
-                inputs.nixcord.homeManagerModules.nixcord
-                inputs.catppuccin.homeManagerModules.catppuccin
+                inputs.nixcord.homeModules.nixcord
+                inputs.catppuccin.homeModules.catppuccin
+                inputs.spicetify-nix.homeManagerModules.default
               ];
             }
           ];

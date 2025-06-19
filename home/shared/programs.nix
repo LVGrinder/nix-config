@@ -20,8 +20,8 @@
       prismlauncher
       minecraft-server # minecraft server
       # papermcServers.papermc-1_21_1 # minecraft server
-      spotify
-      spicetify-cli # to customize spotify
+      # spotify
+      # spicetify-cli # to customize spotify
       xfce.thunar # gtk file manager
       xfce.thunar-archive-plugin # Archive support
       xfce.thunar-media-tags-plugin # Media tag support

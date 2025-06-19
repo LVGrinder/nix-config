@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
 
   imports = [
@@ -7,11 +11,13 @@
     ../../shared/programs.nix
     ../../shared/gtk
     ../../shared/wayland/utilities.nix
+    ./spicetify.nix
   ];
   home.username = "teto";
   home.homeDirectory = "/home/teto";
   # home-manager.users.teto = { pkgs, ... }: {
   home.packages = with pkgs; [
+    playerctl
     helvum
     easyeffects
     nextcloud-client
