@@ -36,31 +36,6 @@
     protonplus
     # xdg-desktop-portal-gtk
     # lutris-free
-    (lutris.override {
-      extraPkgs = pkgs: [
-        #       #               ----
-        #       #      ↓ same var ↑
-        #       #     ----
-        wineWowPackages.stable
-        # wineWowPackages.stagingFull
-        # winePackages.waylandFull
-        driversi686Linux.amdvlk
-        #       #     # pkgs.wineWowPackages.waylandFull
-        #       #     # pkgs.wineWow64Packages.waylandFull
-        #       #     # pkgs.winePackages.waylandFull
-        #       #
-        # glibc
-        # gnutls
-        # jansson
-
-        winetricks
-        #       #     # pkgs.dxvk_2 # Vulkan redirect for DX
-        #       #     vulkan-loader
-        #       #     vulkan-validation-layers
-        #       #     vulkan-extension-layer
-        #       #
-      ];
-    })
   ];
   hardware.graphics.extraPackages = with pkgs; [
     amdvlk
