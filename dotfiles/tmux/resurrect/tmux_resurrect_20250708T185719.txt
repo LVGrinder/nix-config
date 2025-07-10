@@ -1,0 +1,5 @@
+pane	0	0	0	:-	0	vi .	:/home/teto/nix-config	1	nvim	:/nix/store/ij89c3mj31c2bkg7n3wrhh3glkh64vj6-neovim-unwrapped-0.11.2/bin/nvim --cmd lua vim.g.loaded_node_provider=0;vim.g.loaded_perl_provider=0;vim.g.loaded_python_provider=0;vim.g.python3_host_prog='/nix/store/iy4sfwwvf76rmv8qp8nr5rkdlgyy2wsk-neovim-0.11.2/bin/nvim-python3';vim.g.ruby_host_prog='/nix/store/iy4sfwwvf76rmv8qp8nr5rkdlgyy2wsk-neovim-0.11.2/bin/nvim-ruby' .
+pane	0	1	1	:*	0	~	:/home/teto	1	bash	:
+window	0	0	:nvim	0	:-	c25d,213x55,0,0,0	:
+window	0	1	:bash	1	:*	c25e,213x55,0,0,1	:
+state	0	
