@@ -34,6 +34,7 @@
   ];
   programs.hyprland.withUWSM = true;
 
+  programs.hyprlock.enable = true;
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
