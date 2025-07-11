@@ -1,5 +1,0 @@
-pane	0	0	1	:*	1	~	:/home/teto	1	bash	:
-pane	teto	1	1	:*	1	~	:/home/teto	1	bash	:
-window	0	0	:bash ⚠︎ yq missing	1	:*	c25d,213x55,0,0,0	:
-window	teto	1	:bash ⚠︎ yq missing	1	:*	c25e,213x55,0,0,1	:
-state	0	
