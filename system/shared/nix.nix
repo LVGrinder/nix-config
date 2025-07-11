@@ -1,40 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+{ config, pkgs, ... }:
 
 {
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}:
-
-{
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ./system/neovim.nix
-    ./system/hyprland.nix
-    ./system/terminal.nix
-    ./system/drivers/amd/amdgpu.nix
-    # ./system/drivers/amd/amdfix.nix
-  ]; # ++ (builtins.attrValues outputs.nixosModules);
-
-  # Bootloader.
-  #boot.loader.grub.enable = true;
-  #boot.loader.grub.device = "/dev/nvme0n1";
-  #boot.loader.grub.useOSProber = true;
-
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-  programs.hyprland.withUWSM = true;
-
-  programs.hyprlock.enable = true;
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 
@@ -88,8 +59,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  programs.hyprland.enable = true;
 
   hardware.bluetooth.enable = true;
   # List packages installed in system profile. To search, run:
@@ -178,5 +147,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

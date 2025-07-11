@@ -50,7 +50,9 @@
           # inherit extraSpecialArgs;
           specialArgs = { inherit inputs; }; # // extraSpecialArgs;
           modules = [
-            ./configuration.nix
+            ./system/hosts/chrono
+            ./system/users/teto
+
             home-manager.nixosModules.home-manager
             # catppuccin.nixosModules.catppuccin
             {

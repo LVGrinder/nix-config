@@ -1,6 +1,17 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 
 {
+  programs.hyprland.enable = true;
+  programs.hyprland.withUWSM = true;
+  programs.hyprlock.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    wofi
+  ];
   # Enable OpenGL/Graphics
   hardware.graphics = {
     enable = true;
@@ -28,7 +39,7 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # boot.initrd.kernelModules = [ "amdgpu" ];
 
   # services.displayManager.sddm.enable = true;
 
@@ -39,13 +50,4 @@
   services.displayManager.defaultSession = "hyprland-uwsm";
   services.displayManager.autoLogin.user = "teto";
 
-  # hardware.graphics = {
-  # };
-  # hardware.opengl.driSupport = true; # This is already enabled by default
-  #   # hardware.graphics.extraPackages = with pkgs; [
-  #   amdvlk
-  # vulkan-loader
-  # rocmPackages.clr.icd
-  # ];
-  # For 32 bit applications
 }
