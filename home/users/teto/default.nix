@@ -8,7 +8,7 @@
   imports = [
     # Include the results of the hardware scan.
     # <home-manager/nixos>
-    ../../shared/programs.nix
+    ../../shared
     ../../shared/gtk
     ../../shared/wayland/utilities.nix
     ./spicetify.nix
