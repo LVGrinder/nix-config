@@ -107,6 +107,36 @@
           ];
         };
 
+        lappy = nixpkgs-unstable.lib.nixosSystem {
+          inherit system;
+          # inherit extraSpecialArgs;
+          specialArgs = { inherit inputs; }; # // extraSpecialArgs;
+          modules = [
+            ./system/hosts/lappy
+            ./system/users/teto
+
+            home-manager.nixosModules.home-manager
+            # catppuccin.nixosModules.catppuccin
+            {
+              home-manager = {
+                # inherit extraSpecialArgs;
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.teto = import ./home/users/teto;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
+              };
+              # Optionally, use home-manager.extraSpecialArgs to pass
+              # arguments to home.nix
+              home-manager.sharedModules = [
+                inputs.nixcord.homeModules.nixcord
+                inputs.catppuccin.homeModules.catppuccin
+                inputs.spicetify-nix.homeManagerModules.default
+              ];
+            }
+          ];
+        };
       };
     };
 }
